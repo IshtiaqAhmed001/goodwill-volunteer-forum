@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Event from './components/Event/Event';
+import Register from './Register/Register';
 
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
         </Route>
         <Route path="/events/event/:id">
           <Event></Event>
+        </Route>
+        <Route path="/register">
+          <Register></Register>
         </Route>
         <Switch>
 
