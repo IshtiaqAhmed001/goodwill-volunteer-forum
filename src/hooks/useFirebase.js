@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Firebase/firebase.init";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut } from "firebase/auth";
 
 
 initializeAuthentication();
@@ -49,6 +49,18 @@ const useFirebase = () => {
             });
     }
 
+    const updateName = (name) => {
+        updateProfile(auth.currentUser, {
+            displayName: name
+        }).then(() => {
+            const newUser = { ...user, displayName: name };
+            setUser(newUser);
+        }).catch((error) => {
+            // An error occurred
+            // ...
+        });
+    }
+
 
     return {
         user,
@@ -58,6 +70,7 @@ const useFirebase = () => {
         loginWithEmailAndPassword,
         isLoading,
         setIsLoading,
+        updateName,
         logOut
     }
 }

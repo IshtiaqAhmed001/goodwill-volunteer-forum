@@ -27,6 +27,7 @@ const Header = () => {
                             <Link to="/login"> <button className="nav-button btn btn-primary">Login</button></Link>
 
                     }
+                    <p className="fw-bold text-primary">{user.displayName}</p>
                     <Link to="/admin">  <button className="nav-button btn btn-dark">Admin</button></Link>
 
                 </div>
