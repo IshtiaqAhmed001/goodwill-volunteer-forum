@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, FormControl, InputGroup } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
-import useServices from '../../useServices/useServices';
+import useServices from '../../hooks/useServices';
 import './Home.css';
 const Home = () => {
 

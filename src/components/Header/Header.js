@@ -3,8 +3,11 @@ import './Header.css';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../images/logos/Group 1329.png';
 import { Button, FormControl, InputGroup } from 'react-bootstrap';
+import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
+
+    const { user, logOut } = useAuth();
 
     return (
         <div className="container">
@@ -18,7 +21,12 @@ const Header = () => {
                     <NavLink className="navlinks" to="/donation">Donation</NavLink>
                     <NavLink className="navlinks" to="/events">Events</NavLink>
                     <NavLink className="navlinks" to="/Blog">Blog</NavLink>
-                    <Link to="/register"> <button className="nav-button btn btn-primary">Register</button></Link>
+
+                    {
+                        user.email ? <button className="nav-button btn btn-primary" onClick={logOut}>Log Out</button> :
+                            <Link to="/login"> <button className="nav-button btn btn-primary">Login</button></Link>
+
+                    }
                     <Link to="/admin">  <button className="nav-button btn btn-dark">Admin</button></Link>
 
                 </div>

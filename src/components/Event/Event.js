@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router';
-import useServices from '../../useServices/useServices';
+import useServices from '../../hooks/useServices';
 
 const Event = () => {
     const { id } = useParams();
